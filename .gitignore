@@ -1,0 +1,25 @@
+# .gitignore
+
+# Virtual environment
+/venv
+/env
+*.pyc
+
+# IDE files
+.idea/
+.vscode/
+
+# Streamlit cache
+.streamlit/
+__pycache__/
+
+# Data files/Downloads
+*.csv
+*.xlsx
+*.parquet
+
+# Operating System files
+.DS_Store
+
+# User-specific (Secrets should be handled separately by Streamlit Secrets)
+secrets.toml
