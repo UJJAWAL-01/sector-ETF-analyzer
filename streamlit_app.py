@@ -121,7 +121,7 @@ if not SYMBOLS:
 
 # Use technical term for the API key
 st.sidebar.markdown("---")
-st.sidebar.markdown("**External Data Access (News API)**")
+st.sidebar.markdown("**External Data Access**")
 _api_key = None
 try:
     _api_key = st.secrets.get("newsapi_key", "")
@@ -129,7 +129,7 @@ except Exception:
     _api_key = ""
 
 if not _api_key:
-    tmp_key = st.sidebar.text_input("NewsAPI Key (Confidential)", type="password")
+    tmp_key = st.sidebar.text_input("Key", type="password")
     if tmp_key:
         _api_key = tmp_key
 
