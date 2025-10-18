@@ -152,7 +152,7 @@ if auto_refresh:
 manual_refresh = st.sidebar.button("🔁 Execute Data Refresh & Cache Invalidation")
 
 # ----------------------------
-# CACHING / DATA FETCH (Removing RRG calculation from return values)
+# CACHING / DATA FETCH 
 # ----------------------------
 @st.cache_data(ttl=60 * 30)
 def load_all_data(tickers, start):
@@ -317,7 +317,6 @@ analytics_df, volatility_series, sharpe_series = calculate_analytics(returns, cu
 # DASHBOARD LAYOUT (Updated tab structure)
 # ----------------------------
 
-# Removed RRG tab
 tab1, tab2 = st.tabs(["🎯 Rotational Momentum & Performance", "📰 Sentiment & Factor Exposure"])
 
 with tab1:
@@ -334,11 +333,11 @@ with tab1:
         pct = ((curr - prev) / prev * 100) if (pd.notna(curr) and pd.notna(prev) and prev != 0) else np.nan
         
         sector_name = data.ETF_INFO.get(sym, (sym, ''))[0]
-        label = f"{sector_name} ({sym}) - Price Point" 
+        label = f"{sector_name} ({sym})" 
         
         with metrics_cols[i % len(metrics_cols)]:
             if pd.notna(curr):
-                delta_str = f"{pct:.2f}% (24H Shift)" if pd.notna(pct) else "N/A"
+                delta_str = f"{pct:.2f}%" if pd.notna(pct) else "N/A"
                 delta_color = "normal" if pct >= 0 else "inverse"
                 st.metric(label=label, value=f"${curr:.2f}", delta=delta_str, delta_color=delta_color)
             else:
