@@ -338,7 +338,7 @@ with tab1:
         with metrics_cols[i % len(metrics_cols)]:
             if pd.notna(curr):
                 delta_str = f"{pct:.2f}%" if pd.notna(pct) else "N/A"
-                delta_color = "normal" if pct >= 0 else "inverse"
+                delta_color = "green" if pct >= 0 else "red"
                 st.metric(label=label, value=f"${curr:.2f}", delta=delta_str, delta_color=delta_color)
             else:
                 st.metric(label=label, value="Data Gap", delta="")
