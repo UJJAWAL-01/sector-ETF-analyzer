@@ -27,19 +27,19 @@ except ImportError:
 
 # --- 1. Enterprise Theming and Global Configuration ---
 st.set_page_config(
-    page_title="Strategic Sector Alpha Generator (SSAG)", 
+    page_title="Sector ETF Analyzer (SEA)", 
     layout="wide", 
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'mailto:support@financialapp.com',
-        'Report a bug': "mailto:bugreport@financialapp.com",
+        'Get Help': 'mailto:mangumochie95@gmail.com',
+        'Report a bug': "mailto:mangumochie95@gmail.com",
         'About': "# Strategic Sector Alpha Generator\n\n**Proprietary Sector Rotation Analytics Platform.**\n\n*Version 1.2.0 - Q4 2024*"
     }
 )
 
 # Use a clean, descriptive title
 st.title("Sector ETF Analyzer (SEA) 📊")
-st.caption("Proprietary Multi-Factor & Rotational Analytics Platform for Institutional Asset Allocation.")
+st.caption("Proprietary Multi-Factor & Rotational Analytics Platform.")
 
 
 # Custom Streamlit Theme (Enhanced Dark Mode - based on provided styling)
