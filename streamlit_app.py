@@ -20,12 +20,8 @@ except ImportError:
 try:
     import src.data as data
     import src.plots as plots
-except ImportError as e:
-    # Fail gracefully: show message but allow program flow so we can inspect / test
-    st.error("Fatal Error: Core analytic modules ('src.data', 'src.plots') are inaccessible. "
-             "Check repository structure or PYTHONPATH.")
-    st.write(f"ImportError: {e}")
-    # Stop early to avoid cascading exceptions in the UI (keep but explicit)
+except ImportError:
+    st.error("Fatal Error: Core analytic modules ('src.data', 'src.plots') are inaccessible.")
     st.stop()
 
 
@@ -126,15 +122,16 @@ if not SYMBOLS:
 # Use technical term for the API key
 st.sidebar.markdown("---")
 st.sidebar.markdown("**External Data Access**")
-# External Data Access Configuration
-
-# Load API key securely from Streamlit secrets
+_api_key = None
 try:
-    _api_key = st.secrets["newsapi_key"]
-except Exception as e:
-    st.error("❌ API key not found in secrets.toml. Please configure it before running the app.")
-    st.stop()
+    _api_key = st.secrets.get("newsapi_key", "a771e1d843e84a7e9d4b0dc597657a9b")
+except Exception:
+    _api_key = "a771e1d843e84a7e9d4b0dc597657a9b"
 
+if not _api_key:
+    tmp_key = st.sidebar.text_input("Key", type="password")
+    if tmp_key:
+        _api_key = tmp_key
 
 # Use technical term for the date range
 st.sidebar.markdown("---")
