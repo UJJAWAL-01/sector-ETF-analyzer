@@ -122,16 +122,15 @@ if not SYMBOLS:
 # Use technical term for the API key
 st.sidebar.markdown("---")
 st.sidebar.markdown("**External Data Access**")
-_api_key = None
-try:
-    _api_key = st.secrets.get("newsapi_key", "")
-except Exception:
-    _api_key = ""
+# External Data Access Configuration
 
-if not _api_key:
-    tmp_key = st.sidebar.text_input("Key", type="password")
-    if tmp_key:
-        _api_key = tmp_key
+# Load API key securely from Streamlit secrets
+try:
+    _api_key = st.secrets["newsapi_key"]
+except Exception as e:
+    st.error("❌ API key not found in secrets.toml. Please configure it before running the app.")
+    st.stop()
+
 
 # Use technical term for the date range
 st.sidebar.markdown("---")
