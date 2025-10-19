@@ -20,8 +20,12 @@ except ImportError:
 try:
     import src.data as data
     import src.plots as plots
-except ImportError:
-    st.error("Fatal Error: Core analytic modules ('src.data', 'src.plots') are inaccessible.")
+except ImportError as e:
+    # Fail gracefully: show message but allow program flow so we can inspect / test
+    st.error("Fatal Error: Core analytic modules ('src.data', 'src.plots') are inaccessible. "
+             "Check repository structure or PYTHONPATH.")
+    st.write(f"ImportError: {e}")
+    # Stop early to avoid cascading exceptions in the UI (keep but explicit)
     st.stop()
 
 
