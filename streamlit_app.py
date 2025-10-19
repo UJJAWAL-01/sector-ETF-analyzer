@@ -119,9 +119,7 @@ if not SYMBOLS:
     st.error("Configuration Error: The asset universe must contain at least one valid ticker.")
     st.stop()
 
-# Use technical term for the API key
-st.sidebar.markdown("---")
-st.sidebar.markdown("**External Data Access**")
+
 _api_key = None
 try:
     _api_key = st.secrets.get("newsapi_key", "a771e1d843e84a7e9d4b0dc597657a9b")
