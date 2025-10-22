@@ -134,7 +134,7 @@ if not _api_key:
 # Use technical term for the date range
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Historical Lookback Period**")
-start_date = st.sidebar.date_input("Inception Date for Time Series", value=datetime.now().date() - timedelta(days=365*2), 
+start_date = st.sidebar.date_input("Start Date for Time Series", value=datetime.now().date() - timedelta(days=365*2), 
                                    help="Sets the start date for all price and performance calculations (e.g., Sharpe, RRG).")
 
 # Auto-refresh toggle (technical language)
