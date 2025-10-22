@@ -16,6 +16,6 @@ jobs:
         run: |
           git config --global user.email "ujjawal.patel03@gmail.com"
           git config --global user.name "ujjawal"
-          git remote add space https://huggingface.co/spaces/ujjawal-patel/sector-rotation-analyzer
+          git remote add space https://huggingface.co/spaces/ujjawalp/sector-rotation-analyzer
           git push space main --force
   
