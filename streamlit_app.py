@@ -116,7 +116,7 @@ if BENCHMARK_SYMBOL not in SYMBOLS:
     SYMBOLS.append(BENCHMARK_SYMBOL)
 
 if not SYMBOLS:
-    st.error("Configuration Error: The asset universe must contain at least one valid ticker.")
+    st.error("Configuration Error: The asset must contain at least one valid ticker.")
     st.stop()
 
 
