@@ -38,7 +38,7 @@ st.set_page_config(
 )
 
 # Use a clean, descriptive title
-st.title("Sector ETF Analyzer (SEA) 📊")
+st.title("Sector ETF Analyzer (SEA)")
 st.caption("Proprietary Multi-Factor & Rotational Analytics Platform.")
 
 
@@ -96,7 +96,7 @@ st.markdown(
 # ----------------------------
 # SIDEBAR: DATA INGESTION & PARAMETERIZATION
 # ----------------------------
-st.sidebar.header("Data Ingestion & Parameterization ⚙️")
+st.sidebar.header("Data Ingestion & Parameterization ")
 
 # Use technical term for the list
 st.sidebar.markdown("**Asset Universe Configuration**")
@@ -319,7 +319,7 @@ tab1, tab2 = st.tabs(["🎯 Rotational Momentum & Performance", "📰 Sentiment 
 
 with tab1:
     # --- Live Snapshot: Use a more technical title and structure ---
-    st.header("Real-Time Price & Performance Monitoring 📈")
+    st.header("Real-Time Price & Performance Monitoring ")
     
     # Use a maximum of 6 columns for better spacing on large monitors
     metrics_cols = st.columns(min(len(available_symbols), 6))
@@ -349,7 +349,7 @@ with tab1:
     st.markdown("Comprehensive evaluation of risk-adjusted returns (Sharpe, Sortino) and systemic market exposure (Beta, Alpha).")
 
     # --- Metric Definitions (Improved formatting) ---
-    with st.expander("❓ Key Metric Definitions & Interpretation", expanded=False):
+    with st.expander(" Key Metric Definitions & Interpretation", expanded=False):
         st.markdown("""
             | Metric | Definition | Allocation Interpretation |
             | :--- | :--- | :--- |
@@ -480,7 +480,7 @@ with tab1:
     st.markdown("---")
 
     # --- Strategy Backtesting (Moved here for better flow) ---
-    st.subheader("Dynamic Sector Allocation Strategy Backtester 🧪")
+    st.subheader("Dynamic Sector Allocation Strategy Backtester")
     st.markdown("Simulate a tactical rotation strategy based on quantifiable momentum signals and trend filtering.")
 
     # Helper function (Keep logic as is)
@@ -554,7 +554,7 @@ with tab1:
                                       index=1, 
                                       help="The core quantitative metric used to determine sector selection.")
 
-    if st.button("▶️ Initiate Strategy Simulation & Audit"):
+    if st.button("Initiate Strategy Simulation & Audit"):
         if top_n > len(tradable_symbols):
             st.error(f"Input Error: Portfolio concentration ({top_n}) exceeds the tradable universe size.")
         else:
@@ -644,7 +644,7 @@ with tab2: # Previously tab3
     st.markdown("---")
 
     # --- Sector News (Sentiment Analysis Proxy) ---
-    st.header("Curated External Sentiment Feeds 📰")
+    st.header("Curated External Sentiment Feeds by Sector")
     st.markdown("Aggregated top headlines providing qualitative sentiment insight into selected sector dynamics.")
     
     if not _api_key:
